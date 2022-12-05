@@ -4,8 +4,6 @@
 #include <string_view>
 #include <vector>
 
-#include "../common/common.inl"
-
 auto common_item(std::string first_rucksack, std::string second_rucksack) -> std::string
 {
     std::ranges::sort(first_rucksack);
@@ -22,7 +20,7 @@ auto get_item_priority(char const item) -> int
     return (item < 'a') ? item - 'A' + 27 : item - 'a' + 1;
 }
 
-auto solve_p1(std::string_view const data) -> int
+auto solve_p1(std::string_view const data)
 {
     auto result_view = data |
             std::views::split('\n') |
@@ -37,7 +35,7 @@ auto solve_p1(std::string_view const data) -> int
     return std::reduce(result_view.begin(), result_view.end());
 }
 
-auto solve_p2(std::string_view const data) -> int
+auto solve_p2(std::string_view const data)
 {
     std::vector<std::vector<std::string>> elves_groups;
     std::vector<std::string> current_group;
@@ -61,3 +59,5 @@ auto solve_p2(std::string_view const data) -> int
 
     return std::reduce(badges_value_view.begin(), badges_value_view.end());
 }
+
+#include "../common/common.inl"

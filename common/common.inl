@@ -5,8 +5,8 @@
 #include <cstdio>
 #include <cstdlib>
 
-auto solve_p1(std::string_view data) -> int;
-auto solve_p2(std::string_view data) -> int;
+auto solve_p1(std::string_view data);
+auto solve_p2(std::string_view data);
 
 auto read_file_content(char const * const filename) -> std::string
 {
@@ -41,17 +41,13 @@ auto main(int argc, char* argv[]) -> int
         std::exit(1);
     }
 
-    auto const result = std::invoke([argv]() {
-        if (std::string_view{argv[1]} == "p1")
-            return solve_p1(read_file_content(argv[2]));
-        else if (std::string_view{argv[1]} == "p2")
-            return solve_p2(read_file_content(argv[2]));
-        else
-        {
-            fmt::print(stderr,"Unknown first argument.");
-            std::exit(1);
-        }
-    });
-
-    fmt::print("{}", result);
+    if (std::string_view{argv[1]} == "p1")
+        fmt::print("{}", solve_p1(read_file_content(argv[2])));
+    else if (std::string_view{argv[1]} == "p2")
+        fmt::print("{}", solve_p2(read_file_content(argv[2])));
+    else
+    {
+        fmt::print(stderr,"Unknown first argument.");
+        std::exit(1);
+    }
 }

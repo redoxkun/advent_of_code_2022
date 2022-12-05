@@ -1,5 +1,3 @@
-#include "../common/common.inl"
-
 #include <charconv>
 #include <numeric>
 #include <ranges>
@@ -55,7 +53,7 @@ auto get_sections_view(auto const line)
            });
 }
 
-auto solve_p1(std::string_view const data) -> int
+auto solve_p1(std::string_view const data)
 {
     auto result_view = data |
             std::views::split('\n') |
@@ -73,7 +71,7 @@ auto solve_p1(std::string_view const data) -> int
     return std::reduce(result_view.begin(), result_view.end());
 }
 
-auto solve_p2(std::string_view const data) -> int
+auto solve_p2(std::string_view const data)
 {
     auto result_view = data |
             std::views::split('\n') |
@@ -90,3 +88,5 @@ auto solve_p2(std::string_view const data) -> int
 
     return std::reduce(result_view.begin(), result_view.end());
 }
+
+#include "../common/common.inl"

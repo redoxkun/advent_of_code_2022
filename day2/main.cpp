@@ -2,8 +2,6 @@
 #include <ranges>
 #include <string_view>
 
-#include "../common/common.inl"
-
 auto get_points_p1(std::string_view const code) -> int
 {
     if (code == "A X")
@@ -28,7 +26,7 @@ auto get_points_p1(std::string_view const code) -> int
     return 0;
 }
 
-auto solve_p1(std::string_view const data) -> int
+auto solve_p1(std::string_view const data)
 {
     auto results_view = data |
             std::views::split('\n') |
@@ -64,7 +62,7 @@ auto get_points_p2(std::string_view const code) -> int
     return 0;
 }
 
-auto solve_p2(std::string_view data) -> int
+auto solve_p2(std::string_view data)
 {
     auto results_view = data |
             std::views::split('\n') |
@@ -75,3 +73,5 @@ auto solve_p2(std::string_view data) -> int
 
     return std::reduce(results_view.begin(), results_view.end());
 }
+
+#include "../common/common.inl"

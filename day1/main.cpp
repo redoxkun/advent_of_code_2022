@@ -1,12 +1,11 @@
+#include <algorithm>
 #include <charconv>
 #include <numeric>
 #include <ranges>
 #include <string_view>
 #include <vector>
 
-#include "../common/common.inl"
-
-auto solve_p1(std::string_view data) -> int
+auto solve_p1(std::string_view data)
 {
     auto current_value = 0;
     auto max_value = 0;
@@ -25,7 +24,7 @@ auto solve_p1(std::string_view data) -> int
     return max_value;
 }
 
-auto solve_p2(std::string_view data) -> int
+auto solve_p2(std::string_view data)
 {
     auto current_value = 0;
     std::vector<int> max_values = {0, 0, 0};
@@ -45,3 +44,5 @@ auto solve_p2(std::string_view data) -> int
 
     return std::reduce(max_values.begin(), max_values.end());
 }
+
+#include "../common/common.inl"
