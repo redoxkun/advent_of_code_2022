@@ -22,3 +22,6 @@ target_link_libraries(day5 fmt::fmt-header-only)
 
 add_executable(day6 day6/main.cpp)
 target_link_libraries(day6 fmt::fmt-header-only)
+
+add_executable(day7 day7/main.cpp)
+target_link_libraries(day7 fmt::fmt-header-only)
